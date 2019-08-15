@@ -11,7 +11,7 @@ import Foundation
 class Civilization {
     static let shared = Civilization()
     
-    var wealth = 1.0
+    var wealth: Double = 10
     var population : [Citizen] = []
     var unrest = 1.0
     var poverty = 1.0
@@ -25,6 +25,15 @@ class Civilization {
     var civilizationType = "Agrarian Commune"
     
     var effects: [Effect] = []
+    
+    var turn = 1
+    
+    var activeAlerts: [Alert] = []
+    var alerts: [Alert] = []
+    
+    var socialGroups = ["Everyone", "Men", "Women", "Farmers", "Artisans", "Merchants"]
+    
+    var taxRate: Double = 0.05
     
     func calculateUnrest() {
         
@@ -59,7 +68,11 @@ class Civilization {
     }
     
     func getIncome() -> Double {
-        return 2
+        var income: Double = 0
+        for c in population {
+            income += c.wealth * taxRate
+        }
+        return income
     }
     
     func applyModifiers() {
@@ -87,7 +100,15 @@ class Civilization {
                     wealth += effect.amount
                 }
                 if effect.affectedField == "population" {
-                    wealth += effect.amount
+                    if effect.amount > 0 {
+                        for _ in 0..<Int(effect.amount) {
+                            population.append(Citizen.generateCitizen())
+                        }
+                    } else {
+                        for _ in 0..<Int(abs(effect.amount)) {
+                            population.remove(at: Int.random(in: 0..<population.count))
+                        }
+                    }
                 }
             }
         }
@@ -95,7 +116,9 @@ class Civilization {
     
     func tickModifiers() {
         if effects.count > 0 {
-            for i in 0..<effects.count-1 {
+            for i in stride(from: effects.count-1, to: -1, by: -1) {
+                print("Item " + String(i) + " out of " + String(effects.count))
+                print("Ticking " + effects[i].cause)
                 effects[i].expiry -= 1
                 if effects[i].expiry <= 0 {
                     effects.remove(at: i)
@@ -131,7 +154,19 @@ class Civilization {
                             population[i].unrest += effect.amount
                         }
                     }
+                    population[i].wealth = 1
+                    if effect.affectedField == "citizen wealth" {
+                        if effect.affects(citizen: population[i]) {
+                            population[i].wealth += effect.amount
+                        }
+                    }
                 }
+            }
+        }
+        
+        for alert in alerts {
+            if alert.shouldOccur() {
+                activeAlerts.append(alert)
             }
         }
     }
@@ -140,5 +175,7 @@ class Civilization {
         wealth += getIncome()
         Civilization.shared.applyModifiers()
         tickModifiers()
+        activeAlerts = []
+        turn += 1
     }
 }

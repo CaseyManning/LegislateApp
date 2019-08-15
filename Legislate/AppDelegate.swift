@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Legislate
+//  ReignsGame
 //
-//  Created by Casey Manning on 8/15/19.
+//  Created by Casey Manning on 8/11/19.
 //  Copyright © 2019 Casey Manning. All rights reserved.
 //
 

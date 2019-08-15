@@ -21,6 +21,7 @@ class ViewControllerDashboard: UIViewController {
     @IBOutlet weak var populationNum: UILabel!
     @IBOutlet weak var unrestNum: UILabel!
     @IBOutlet weak var povertyNum: UILabel!
+    @IBOutlet weak var turnNum: UILabel!
     
     @IBOutlet weak var civilizationMarkerLabel: UILabel!
     
@@ -33,15 +34,24 @@ class ViewControllerDashboard: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set("true", forKey: "started")
         
-        let civ = Civilization.shared
-        Civilization.shared.update()
         
-        surplusNum.text = String(Int(civ.wealth))
-        populationNum.text = String(Int(civ.population.count))
-        unrestNum.text = String(Int(civ.unrest))
-        povertyNum.text = String(Int(civ.poverty))
+        Civilization.shared.update()
+        Civilization.shared.unrest -= 1
+        Civilization.shared.unrest += 1
+        Civilization.shared.calculateUnrest()
+        surplusNum.text = String(Int(Civilization.shared.wealth))
+        populationNum.text = String(Int(Civilization.shared.population.count))
+        unrestNum.text = String(Int(Civilization.shared.unrest))
+        povertyNum.text = String(Int(Civilization.shared.poverty))
         
         civilizationMarkerLabel.text = Civilization.shared.name
+        
+        turnNum.text = "Turn: " + String(Civilization.shared.turn)
+        if Civilization.shared.unrest > 10 {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverScreen") as!ViewControllerDashboard
+            self.present(newViewController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func endTurnPressed(_ sender: Any) {

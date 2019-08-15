@@ -31,7 +31,7 @@ struct Event {
             "Excellent!": [Effect(affects: "unrest", amount: -1, expiry: 3, cause: "A Good Harvest", percent: 0)],
             "Extra food belongs to the state!": [Effect(affects: "wealth", amount: 6, expiry: 1, cause: "A Good Harvest", percent: 0), Effect(affects: "unrest", amount: 1, expiry: 10, cause: "Surplus Proceeds confiscated", percent: 0)]]
         
-        let event1 = Event(name: "A Bountiful Harvest", description: "The gods have been kind this year, and our civilization has brought in a bountiful harvest.", options: options1, requirement: {return false}, inevitable: false)
+        let event1 = Event(name: "A Bountiful Harvest", description: "The gods have been kind this year, and our civilization has brought in a bountiful harvest.", options: options1, requirement: {return true}, inevitable: false)
         
         allEvents.append(event1)
         
@@ -48,13 +48,13 @@ struct Event {
             "Turn them away": []
         ]
         
-        let event3 = Event(name: "Religious Immigrants", description: "A new religious group has arrived at our borders seeking entry. However, the religion they all follow isn't accepted by our society, and may cause divisions.", options: options3, requirement: {return false}, inevitable: false)
+        let event3 = Event(name: "Religious Immigrants", description: "A new religious group has arrived at our borders seeking entry. However, the religion they all follow isn't accepted by our society, and may cause divisions.", options: options3, requirement: {return true}, inevitable: false)
         
         allEvents.append(event3)
         
         let options4 =  [
             "Appease them with donations": [Effect(affects: "wealth", amount: -15, expiry: 1, cause: "generous donations", percent: 0), Effect(affects: "unrest", amount: -2, expiry: 5, cause: "generous donations", percent: 0)],
-            "Ignore them": [Effect(affects: "unrest", amount: 1, expiry: 3, cause: "ignored riots", percent: 0)]
+            "Ignore them": [Effect(affects: "unrest", amount: 1, expiry: 10, cause: "ignored riots", percent: 0)]
         ]
         
         let event4 = Event(name: "Rioting in the streets", description: "Many people are unhappy with your rule, and have taken to the streets in protest", options: options4, requirement: {return Civilization.shared.unrest > 0}, inevitable: true)

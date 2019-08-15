@@ -20,9 +20,9 @@ struct Law {
         "Ban of Murder": "A cornerstone of legal systems across the globe, this anti-homocide legislation ensures that regular citizens don't go around killing each other willy-nilly.",
         "Ban of Murder for Men": "Many of the less forward-thinking citizens in your realm consider the idea of murder being illegal only for men to be completely ludicrous, causing significant unrest.",
         "Ban of Murder for Women": "Many of the less forward-thinking citizens in your realm consider the idea of murder being illegal only for women to be completely ludicrous, causing significant unrest.",
-        "Ban of Murder for Poor People": "Many of the less forward-thinking citizens in your realm consider the idea of murder being illegal only for poor people to be completely ludicrous, causing significant unrest.",
-        "Ban of Murder for Rich People": "Many of the less forward-thinking citizens in your realm consider the idea of murder being illegal only for rich people to be completely ludicrous, causing significant unrest.",
-        "Ban of Theft": "Central to all capitalist systems is the idea that individuals can accrue personal wealth with the protection of the state. One such protection is that no part of someone's wealth may be stolen by anyone else.",
+        "Ban of Murder for Farmers": "Many of the less forward-thinking citizens in your realm consider the idea of murder being illegal only for artisans to be completely ludicrous, causing significant unrest.",
+        "Ban of Murder for Artisans": "Many of the less forward-thinking citizens in your realm consider the idea of murder being illegal only for artisans to be completely ludicrous, causing significant unrest.",
+        "Ban of Theft": "Prevents any citizen from taking the possessions of any other citizen without their consent."
     ]
     static let effects = [
         "Ban of Murder": [
@@ -35,15 +35,23 @@ struct Law {
         "Ban of Murder for Women": [
             Effect(affects: "unrest", amount: 1, expiry: 10000, cause: "Ban on Murder", percent: 0),
         ],
-        "Ban of Murder for Poor People": [
+        "Ban of Murder for Farmers": [
             Effect(affects: "unrest", amount: 1, expiry: 10000, cause: "Ban on Murder", percent: 0),
         ],
-        "Ban of Murder for Rich People": [
+        "Ban of Murder for Artisans": [
             Effect(affects: "unrest", amount: 1, expiry: 10000, cause: "Ban on Murder", percent: 0),
         ],
         "Ban of Theft": [
             Effect(affects: "unrest", amount: -1, expiry: 10000, cause: "Ban on Theft", percent: 0),
             Effect(affects: "citizen wealth", amount: 0.1, expiry: 10000, cause: "Ban on Theft", percent: 0)
+        ],
+        "Ban of Medical Care": [
+            Effect(affects: "population", amount: -2, expiry: 10000, cause: "Ban on Medical Care", percent: 0),
+            Effect(affects: "unrest", amount: 4, expiry: 10000, cause: "Ban on Medical Care", percent: 0)
+        ],
+        "Ban of Medical Care for ": [
+            Effect(affects: "population", amount: -1.0, expiry: 10000, cause: "Ban on Medical Care", percent: 0),
+            Effect(affects: "unrest", amount: 6.0, expiry: 10000, cause: "Ban on Medical Care", percent: 0, affectedGroups: ["Poor People"])
         ]
     ]
     

@@ -13,14 +13,17 @@ struct Citizen {
     var religion = "Atheist"
     var wealth: Double = 1
     var unrest = 0.0
-    var occupation = "Farming"
+    var occupation = "Farmers"
+    var gender: String
     
-    init(faith: String, occupation: String) {
-        
+    init(religion: String, occupation: String) {
+        self.religion = religion
+        self.occupation = occupation
+        self.gender = ["Men", "Women"][Int.random(in: 0..<2)]
     }
     
     static func generateCitizen() -> Citizen {
         
-        return Citizen(faith: "dumb", occupation: "farming")
+        return Citizen(religion: "Atheist", occupation: "Farmers")
     }
 }

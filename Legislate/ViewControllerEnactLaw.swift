@@ -25,13 +25,13 @@ class ViewControllerEnactLaw: UIViewController {
     
     var laws = Law.laws
     
-    var groups = ["Everyone", "Rich People", "Poor People", "Men", "Women"]
-    
     var current = ""
     var currentRecip = ""
     
     var legalizeImage: UIImage? = nil
     var banImage: UIImage? = nil
+    
+    var groups = Civilization.shared.socialGroups
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,9 +96,7 @@ class ViewControllerEnactLaw: UIViewController {
     @IBAction func lawRecipientChange(_ sender: Any) {
         currentRecip = recipientBox.text!
         
-        groups = groups.sorted(by: checkRecip)
-        
-        print(groups)
+        groups = Civilization.shared.socialGroups.sorted(by: checkRecip)
         
         recipientSuggestion.setTitle(groups[0], for: .normal)
         

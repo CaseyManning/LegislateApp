@@ -87,11 +87,7 @@ class ViewControllerTurnEvent: UIViewController {
             Civilization.shared.effects.append(mod)
         }
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewControllerDashboard") as!ViewControllerDashboard
-        self.present(newViewController, animated: true, completion: nil)
-        
-        Civilization.shared.nextTurn()
+        leave()
     }
     @IBAction func option2Press(_ sender: Any) {
         
@@ -99,11 +95,7 @@ class ViewControllerTurnEvent: UIViewController {
             Civilization.shared.effects.append(mod)
         }
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewControllerDashboard") as!ViewControllerDashboard
-        self.present(newViewController, animated: true, completion: nil)
-        
-        Civilization.shared.nextTurn()
+        leave()
     }
     @IBAction func option3Press(_ sender: Any) {
         
@@ -111,11 +103,20 @@ class ViewControllerTurnEvent: UIViewController {
             Civilization.shared.effects.append(mod)
         }
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewControllerDashboard") as!ViewControllerDashboard
-        self.present(newViewController, animated: true, completion: nil)
-        
+        leave()
+    }
+    
+    func leave() {
         Civilization.shared.nextTurn()
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var newViewController: UIViewController? = nil
+        if Civilization.shared.activeAlerts.count == 0 {
+            newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewControllerDashboard") as!ViewControllerDashboard
+        } else {
+            newViewController = storyBoard.instantiateViewController(withIdentifier: "AlertScreen") as!ViewControllerDashboard
+        }
+        self.present(newViewController!, animated: true, completion: nil)
     }
     
 }

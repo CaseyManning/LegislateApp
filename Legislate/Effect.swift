@@ -14,7 +14,7 @@ struct Effect {
     var amount: Double = 0.0
     var expiry = 1000
     
-    static let all = ["Rich People", "Poor People"]
+    static let all = ["Everyone"]
     
     var cause = ""
     var percent = 0
@@ -53,6 +53,6 @@ struct Effect {
     }
     
     func affects(citizen: Citizen) -> Bool {
-        return true
+        return affectedGroups.contains("Everyone") || affectedGroups.contains(citizen.occupation) || affectedGroups.contains(citizen.gender)
     }
 }
