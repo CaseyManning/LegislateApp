@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var easyButton: UIImageView!
     @IBOutlet weak var mediumButton: UIImageView!
@@ -44,7 +44,16 @@ class ViewController: UIViewController {
         } else {
             setUpDefaultCiv()
         }
+        
+        nameTextBox.delegate = self as UITextFieldDelegate
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    
     
     func setUpDefaultCiv() {
         let defaults = UserDefaults.standard

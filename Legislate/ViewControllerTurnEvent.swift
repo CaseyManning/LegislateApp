@@ -69,16 +69,21 @@ class ViewControllerTurnEvent: UIViewController {
     
     func chooseEvent() -> Event {
         var possibleEvents: [Event] = []
+        var inevitableEvents: [Event] = []
         for event in Event.allEvents {
             if event.requirement() {
                 if event.inevitable {
-                    return event
+                    inevitableEvents.append(event)
                 } else {
                     possibleEvents.append(event)
                 }
             }
         }
-        return possibleEvents[Int.random(in: 0..<possibleEvents.count)]
+        if inevitableEvents.count == 0 {
+            return possibleEvents[Int.random(in: 0..<possibleEvents.count)]
+        } else {
+            return inevitableEvents[Int.random(in: 0..<inevitableEvents.count)]
+        }
     }
 
     @IBAction func option1Press(_ sender: Any) {

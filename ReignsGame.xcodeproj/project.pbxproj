@@ -66,6 +66,7 @@
 		82D4B36D2305D4C3001C9371 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7A89D23022C8900501459 /* Effect.swift */; };
 		82D4B36E2305D4C3001C9371 /* Law.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223996323031D15001A7F51 /* Law.swift */; };
 		82D4B36F2305D4C3001C9371 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7A8A1230233DC00501459 /* Event.swift */; };
+		82FA265623061406003E9267 /* grid.gif in Resources */ = {isa = PBXBuildFile; fileRef = 82FA265523061406003E9267 /* grid.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,7 @@
 		82F7A8A32302456400501459 /* scrollIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrollIcon.png; sourceTree = "<group>"; };
 		82F7A8A5230245A700501459 /* ViewControllerModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModifiers.swift; sourceTree = "<group>"; };
 		82F7A8A923024C7900501459 /* religonIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = religonIcon.jpg; sourceTree = "<group>"; };
+		82FA265523061406003E9267 /* grid.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = grid.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				828285E823014B7E00EDDF0A /* yellow_button04.png */,
 				828285CA2300ED7B00EDDF0A /* blue_button02.png */,
 				828285DE230145A900EDDF0A /* farm.png */,
+				82FA265523061406003E9267 /* grid.gif */,
 				828285BC2300ED3400EDDF0A /* Main.storyboard */,
 				823F61842305FBD90078BFE7 /* ViewControllerGameOver.swift */,
 				823F61822305EAA40078BFE7 /* ViewControllerGovernmentPrograms.swift */,
@@ -313,6 +316,7 @@
 				823F61672305D60B0078BFE7 /* nextIcon.png in Resources */,
 				823F61682305D60B0078BFE7 /* green_button09.png in Resources */,
 				823F61692305D60B0078BFE7 /* dropdownBottom.png in Resources */,
+				82FA265623061406003E9267 /* grid.gif in Resources */,
 				823F616A2305D60B0078BFE7 /* green_circle.png in Resources */,
 				823F616B2305D60B0078BFE7 /* grey_circle.png in Resources */,
 				823F616C2305D60B0078BFE7 /* yellow_boxTick.png in Resources */,

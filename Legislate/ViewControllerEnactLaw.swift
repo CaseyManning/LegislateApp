@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class ViewControllerEnactLaw: UIViewController {
+class ViewControllerEnactLaw: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var lawTextBox: UITextField!
     @IBOutlet weak var lawTypeButton: UIButton!
@@ -58,6 +58,16 @@ class ViewControllerEnactLaw: UIViewController {
             suggestion2.isHidden = false
             suggestion3.isHidden = false
         }
+        lawTextBox.autocapitalizationType = .words
+        recipientBox.autocapitalizationType = .words
+        
+        recipientBox.delegate = self
+        lawTextBox.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     func check(a: String, b:String) -> Bool {

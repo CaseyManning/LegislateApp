@@ -25,6 +25,17 @@ class ViewControllerDashboard: UIViewController {
     
     @IBOutlet weak var civilizationMarkerLabel: UILabel!
     
+    var mapScrollX = CGFloat(0)
+    var mapScrollY = CGFloat(0)
+    
+    @IBOutlet weak var civilizationMarkerDot: UIImageView!
+    
+    @IBOutlet weak var mapBackground: UIImageView!
+
+    @IBOutlet weak var mapGrid: UIImageView!
+    
+    var startLocation: CGPoint?
+    
     @IBOutlet weak var militaryButton: UIButton!
     override func viewDidLoad() {
         print("Loading Dashboard View")
@@ -47,9 +58,15 @@ class ViewControllerDashboard: UIViewController {
         civilizationMarkerLabel.text = Civilization.shared.name
         
         turnNum.text = "Turn: " + String(Civilization.shared.turn)
-        if Civilization.shared.unrest > 10 {
+        
+        addPanGesture(view: mapBackground)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Civilization.shared.unrest >= 10 {
+            print("Game Over")
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverScreen") as!ViewControllerDashboard
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverScreen") as!ViewControllerGameOver
             self.present(newViewController, animated: true, completion: nil)
         }
     }
@@ -58,7 +75,65 @@ class ViewControllerDashboard: UIViewController {
         
     }
     
+    func configureMask(button:UIImageView, with image:UIImage!){
+        let masklayer = CALayer()
+        masklayer.frame.origin = CGPoint(x: mapBackground.frame.minX - 173 - self.mapScrollX, y: mapBackground.frame.minX - 173 - self.mapScrollY)
+        masklayer.frame.size = CGSize(width: 240, height: 240)
+        masklayer.contents = image.cgImage
+        button.layer.mask = masklayer
+    }
+    
     func renderMap() {
+        civilizationMarkerDot.center.x = self.view.center.x + self.mapScrollX
+        civilizationMarkerDot.center.y = self.view.center.y + self.mapScrollY
+        view.bringSubviewToFront(civilizationMarkerDot)
+        
+        civilizationMarkerLabel.center.x = civilizationMarkerDot.center.x
+        civilizationMarkerLabel.center.y = civilizationMarkerDot.center.y - 30
+//        view.bringSubviewToFront(civilizationMarkerLabel)
+        mapGrid.center.x = self.view.center.x + self.mapScrollX
+        mapGrid.center.y = self.view.center.y + self.mapScrollY
+        
+//        let mutablePath = CGMutablePath()
+//
+//        mutablePath.addRect(mapBackground.bounds)
+//        mutablePath.addRect(view.bounds)
+//        // Create a shape layer and cut out the intersection
+//        let mask = CALayer()
+//        mask.frame.origin = CGPoint(x: mapScrollX, y: mapScrollX)
+//        mask.frame.size = mapBackground.frame.size
+//        mask.contents = mapBackground.image?.cgImage
+//        mask.path = mutablePath
+//        mask.fillRule = CAShapeLayerFillRule.evenOdd
+        
+        configureMask(button: civilizationMarkerDot, with:  mapBackground.image)
+        
+        
+//        civilizationMarkerDot.layer.mask = mask
+//        mapGrid.layer.mask = mask
+    }
+    
+    func addPanGesture(view: UIView) {
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(ViewControllerDashboard.handlePan(sender:)))
+        
+        view.addGestureRecognizer(pan)
+    }
+    
+    @objc func handlePan(sender: UIPanGestureRecognizer) {
+//        let translation = sender.translation(in: sender.view)
+//        sender.location(in: view).x
+       
+        switch sender.state {
+        case .began:
+            print("Starting pan")
+            startLocation = sender.location(in: view)
+        case .changed:
+            mapScrollX -= (startLocation!.x - sender.location(in: view).x)/50
+            mapScrollY -= (startLocation!.y - sender.location(in: view).y)/50
+            renderMap()
+        default:
+            break
+        }
         
     }
 }

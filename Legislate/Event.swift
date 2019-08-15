@@ -29,7 +29,7 @@ struct Event {
         
         let options1 =  [
             "Excellent!": [Effect(affects: "unrest", amount: -1, expiry: 3, cause: "A Good Harvest", percent: 0)],
-            "Extra food belongs to the state!": [Effect(affects: "wealth", amount: 6, expiry: 1, cause: "A Good Harvest", percent: 0), Effect(affects: "unrest", amount: 1, expiry: 10, cause: "Surplus Proceeds confiscated", percent: 0)]]
+            "Extra food belongs to me": [Effect(affects: "wealth", amount: 6, expiry: 1, cause: "A Good Harvest", percent: 0), Effect(affects: "unrest", amount: 1, expiry: 10, cause: "Surplus Proceeds confiscated", percent: 0)]]
         
         let event1 = Event(name: "A Bountiful Harvest", description: "The gods have been kind this year, and our civilization has brought in a bountiful harvest.", options: options1, requirement: {return true}, inevitable: false)
         
