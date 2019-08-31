@@ -17,10 +17,12 @@ class Civilization {
     var poverty = 1.0
     
     var laws: [Law] = []
+    var programs: [GovProgram] = []
     
     var name = "Unamed Civilization"
     
     var currentLaw: Law? = nil
+    var currentProgram: String? = nil
     
     var civilizationType = "Agrarian Commune"
     

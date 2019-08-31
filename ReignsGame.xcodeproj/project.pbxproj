@@ -46,6 +46,8 @@
 		823F61812305E82D0078BFE7 /* ViewControllerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F61802305E82D0078BFE7 /* ViewControllerAlert.swift */; };
 		823F61832305EAA40078BFE7 /* ViewControllerGovernmentPrograms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F61822305EAA40078BFE7 /* ViewControllerGovernmentPrograms.swift */; };
 		823F61852305FBD90078BFE7 /* ViewControllerGameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F61842305FBD90078BFE7 /* ViewControllerGameOver.swift */; };
+		82AABBC7231AF5980066F84E /* GovProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AABBC6231AF5980066F84E /* GovProgram.swift */; };
+		82AABBC9231AF6D00066F84E /* ViewControllerSpecificProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AABBC8231AF6D00066F84E /* ViewControllerSpecificProgram.swift */; };
 		82D4B35B2305D4BA001C9371 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 828285BC2300ED3400EDDF0A /* Main.storyboard */; };
 		82D4B35C2305D4BA001C9371 /* ViewControllerPopulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223996B2303BA6E001A7F51 /* ViewControllerPopulation.swift */; };
 		82D4B35D2305D4BA001C9371 /* ViewControllerLawList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223996523035087001A7F51 /* ViewControllerLawList.swift */; };
@@ -121,6 +123,8 @@
 		828285E423014A3B00EDDF0A /* grey_button14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey_button14.png; sourceTree = "<group>"; };
 		828285E623014B5900EDDF0A /* yellow_button05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_button05.png; sourceTree = "<group>"; };
 		828285E823014B7E00EDDF0A /* yellow_button04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_button04.png; sourceTree = "<group>"; };
+		82AABBC6231AF5980066F84E /* GovProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovProgram.swift; sourceTree = "<group>"; };
+		82AABBC8231AF6D00066F84E /* ViewControllerSpecificProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSpecificProgram.swift; sourceTree = "<group>"; };
 		82D4B3372305D3CE001C9371 /* Legislate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Legislate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F7A88F23020AD600501459 /* econIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = econIcon.png; sourceTree = "<group>"; };
 		82F7A89123020B4D00501459 /* militaryIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = militaryIcon.png; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				828285DE230145A900EDDF0A /* farm.png */,
 				82FA265523061406003E9267 /* grid.gif */,
 				828285BC2300ED3400EDDF0A /* Main.storyboard */,
+				82AABBC8231AF6D00066F84E /* ViewControllerSpecificProgram.swift */,
 				823F61842305FBD90078BFE7 /* ViewControllerGameOver.swift */,
 				823F61822305EAA40078BFE7 /* ViewControllerGovernmentPrograms.swift */,
 				1586D9FF231AD892003FA97D /* ViewControllerNewProgram.swift */,
@@ -218,6 +223,7 @@
 				8223996523035087001A7F51 /* ViewControllerLawList.swift */,
 				8223995D23028335001A7F51 /* Levenshtein.swift */,
 				8223995B23027F0B001A7F51 /* ViewControllerEnactLaw.swift */,
+				82AABBC6231AF5980066F84E /* GovProgram.swift */,
 				82F7A8A5230245A700501459 /* ViewControllerModifiers.swift */,
 				822399672303587C001A7F51 /* ViewControllerSpecificLaw.swift */,
 				82F7A89F23022FB500501459 /* ViewControllerUnrest.swift */,
@@ -370,6 +376,8 @@
 				82D4B3602305D4BA001C9371 /* ViewControllerModifiers.swift in Sources */,
 				82D4B3612305D4BA001C9371 /* ViewControllerSpecificLaw.swift in Sources */,
 				82D4B3622305D4BA001C9371 /* ViewControllerUnrest.swift in Sources */,
+				82AABBC9231AF6D00066F84E /* ViewControllerSpecificProgram.swift in Sources */,
+				82AABBC7231AF5980066F84E /* GovProgram.swift in Sources */,
 				82D4B3632305D4BA001C9371 /* AppDelegate.swift in Sources */,
 				82D4B3642305D4BA001C9371 /* ViewController.swift in Sources */,
 				82D4B3652305D4BA001C9371 /* ViewControllerLaws.swift in Sources */,

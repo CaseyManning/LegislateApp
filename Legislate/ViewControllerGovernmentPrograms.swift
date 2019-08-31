@@ -12,10 +12,31 @@ import UIKit
 
 class ViewControllerGovernmentPrograms: UIViewController {
     
+    @IBOutlet weak var testButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = ViewController.backgroundColor
         
+        for i in 0..<Civilization.shared.programs.count {
+            let x = testButton.frame.minX
+            let y = Int(testButton.frame.minY) + (i*65)
+            let lawButton = UIButton(frame: CGRect(x: x, y: CGFloat(y), width: testButton.frame.width, height:  testButton.frame.height))
+            lawButton.setBackgroundImage(testButton.backgroundImage(for: .normal), for: .normal)
+            lawButton.setTitleColor(UIColor.black, for: .normal)
+            lawButton.titleLabel?.font = testButton.titleLabel?.font
+            lawButton.setTitle(Civilization.shared.programs[i].getString(), for: .normal)
+            lawButton.addTarget(self, action: #selector(self.pressedProgram), for: .touchUpInside)
+            //            lawButton.addTarget(self, action: self.pressedLaw(_:), for: .touchUpInside)
+            
+            view.addSubview(lawButton)
+        }
+    }
+    
+    @objc public func pressedProgram(source: UIButton) {
+        Civilization.shared.currentProgram = source.titleLabel!.text!
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewControllerSpecificProgram") as!ViewControllerSpecificProgram
+        self.present(newViewController, animated: false, completion: nil)
     }
 }
