@@ -112,6 +112,14 @@ class ViewControllerTurnEvent: UIViewController {
     }
     
     func leave() {
+        
+        if Civilization.shared.unrest >= 10 {
+            print("Game Over")
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverScreen") as!ViewControllerGameOver
+            self.present(newViewController, animated: true, completion: nil)
+        }
+        
         Civilization.shared.nextTurn()
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

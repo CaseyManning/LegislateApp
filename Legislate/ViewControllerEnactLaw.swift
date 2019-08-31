@@ -135,5 +135,6 @@ class ViewControllerEnactLaw: UIViewController, UITextFieldDelegate {
             let type = lawTypeButton.titleLabel?.text
             Civilization.shared.laws.append(Law(type: type!, action: lawTextBox.text!, forGroup: recipientBox.text!))
         }
+        
     }
 }

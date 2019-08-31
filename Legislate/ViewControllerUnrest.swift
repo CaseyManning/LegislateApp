@@ -41,7 +41,7 @@ class ViewControllerUnrest: UIViewController {
         }
         for i in 0..<unrestMods.count {
             let x = view.center.x - 250
-            let y = Int(baseUnrest.frame.minY) + (i*33) + 50
+            let y = Int(baseUnrest.frame.minY) + (i*33) + 70
             let effectLabel = UILabel(frame: CGRect(x: Int(x), y: y, width: 500, height: 20))
             effectLabel.text = String(unrestMods[i].amount) + " unrest from " + unrestMods[i].cause
             effectLabel.font = baseUnrest.font

@@ -31,7 +31,12 @@ class Civilization {
     var activeAlerts: [Alert] = []
     var alerts: [Alert] = []
     
-    var socialGroups = ["Everyone", "Men", "Women", "Farmers", "Artisans", "Merchants"]
+    static let religions = ["Kotanians", "Phondians", "Lastrians"]
+    static let occupations = ["Farmers", "Artisans", "Merchants"]
+    
+    var socialGroups = ["Everyone", "Men", "Women"] + occupations + religions
+    
+    
     
     var taxRate: Double = 0.05
     

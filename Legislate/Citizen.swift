@@ -10,7 +10,7 @@ import Foundation
 
 struct Citizen {
     
-    var religion = "Atheist"
+    var religion = Civilization.religions[0]
     var wealth: Double = 1
     var unrest = 0.0
     var occupation = "Farmers"
@@ -24,6 +24,8 @@ struct Citizen {
     
     static func generateCitizen() -> Citizen {
         
-        return Citizen(religion: "Atheist", occupation: "Farmers")
+        let religion = Civilization.religions[Int.random(in: 0..<Civilization.religions.count)]
+        
+        return Citizen(religion: religion, occupation: "Farmers")
     }
 }

@@ -25,6 +25,7 @@ struct Effect {
         self.expiry = expiry
         self.cause = cause
         self.percent = percent
+        self.affectedGroups = affectedGroups
     }
     
     init(affects: String, amount: Double, expiry: Int, cause: String, percent: Int) {
@@ -41,7 +42,11 @@ struct Effect {
             if affectedField == "population" || affectedField == "wealth" {
                 return "Gives " + String(amount) + " " + affectedField + " per turn."
             } else {
-                return "Gives " + String(amount) + " " + affectedField + "."
+                if affectedGroups == Effect.all || affectedGroups.count < 1 {
+                    return "Gives " + String(amount) + " " + affectedField + "."
+                } else {
+                    return "Gives " + String(amount) + " " + affectedField + " for " + affectedGroups[0] + "."
+                }
             }
         } else {
             if percent < 0 {
@@ -53,6 +58,8 @@ struct Effect {
     }
     
     func affects(citizen: Citizen) -> Bool {
-        return affectedGroups.contains("Everyone") || affectedGroups.contains(citizen.occupation) || affectedGroups.contains(citizen.gender)
+        print(affectedGroups)
+        print(citizen.religion)
+        return affectedGroups.contains("Everyone") || affectedGroups.contains(citizen.occupation) || affectedGroups.contains(citizen.gender) || affectedGroups.contains(citizen.religion)
     }
 }

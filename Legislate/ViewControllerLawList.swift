@@ -18,7 +18,7 @@ class ViewControllerLawList: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = ViewController.backgroundColor
-        updateList()
+//        updateList()
         testButton.isHidden = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             print(Civilization.shared.laws)

@@ -62,15 +62,6 @@ class ViewControllerDashboard: UIViewController {
         addPanGesture(view: mapBackground)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if Civilization.shared.unrest >= 10 {
-            print("Game Over")
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverScreen") as!ViewControllerGameOver
-            self.present(newViewController, animated: true, completion: nil)
-        }
-    }
-    
     @IBAction func endTurnPressed(_ sender: Any) {
         
     }
