@@ -19,8 +19,8 @@ class ViewControllerEconomy: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = ViewController.backgroundColor
-        wealthCounter.text = String(Civilization.shared.wealth)
+        wealthCounter.text = String(Int(Civilization.shared.wealth))
         citizenWealthCounter.text = String(Civilization.shared.avgCitizenWealth())
-        incomeCounter.text = String(Civilization.shared.getIncome())
+        incomeCounter.text = String(3)
     }
 }

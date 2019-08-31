@@ -18,11 +18,12 @@ class Civilization {
     
     var laws: [Law] = []
     var programs: [GovProgram] = []
+    var possiblePograms: [GovProgram] = GovProgram.getPrograms()
     
     var name = "Unamed Civilization"
     
     var currentLaw: Law? = nil
-    var currentProgram: String? = nil
+    var currentProgram: GovProgram? = nil
     
     var civilizationType = "Agrarian Commune"
     
@@ -40,7 +41,7 @@ class Civilization {
     
     
     
-    var taxRate: Double = 0.05
+    var taxRate: Double = 0.10
     
     func calculateUnrest() {
         
@@ -74,7 +75,7 @@ class Civilization {
         return u
     }
     
-    func getIncome() -> Double {
+    func getTaxAmount() -> Double{
         var income: Double = 0
         for c in population {
             income += c.wealth * taxRate
@@ -179,10 +180,13 @@ class Civilization {
     }
     
     func nextTurn() {
-        wealth += getIncome()
         Civilization.shared.applyModifiers()
         tickModifiers()
         activeAlerts = []
         turn += 1
+        
+        for program in programs {
+            program.effect()
+        }
     }
 }

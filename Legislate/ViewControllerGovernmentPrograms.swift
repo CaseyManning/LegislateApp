@@ -34,7 +34,7 @@ class ViewControllerGovernmentPrograms: UIViewController {
     }
     
     @objc public func pressedProgram(source: UIButton) {
-        Civilization.shared.currentProgram = source.titleLabel!.text!
+        Civilization.shared.currentProgram = GovProgram.fromString(pname: source.titleLabel!.text!)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewControllerSpecificProgram") as!ViewControllerSpecificProgram
         self.present(newViewController, animated: false, completion: nil)
