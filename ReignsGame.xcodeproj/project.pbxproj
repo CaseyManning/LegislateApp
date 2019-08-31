@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1586DA00231AD892003FA97D /* ViewControllerNewProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586D9FF231AD892003FA97D /* ViewControllerNewProgram.swift */; };
 		823F615B2305D60B0078BFE7 /* grey_button14.png in Resources */ = {isa = PBXBuildFile; fileRef = 828285E423014A3B00EDDF0A /* grey_button14.png */; };
 		823F615C2305D60B0078BFE7 /* lawIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 828285D823013EAB00EDDF0A /* lawIcon.png */; };
 		823F615D2305D60B0078BFE7 /* econIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 82F7A88F23020AD600501459 /* econIcon.png */; };
@@ -70,6 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1586D9FF231AD892003FA97D /* ViewControllerNewProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewProgram.swift; sourceTree = "<group>"; };
 		8223995B23027F0B001A7F51 /* ViewControllerEnactLaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEnactLaw.swift; sourceTree = "<group>"; };
 		8223995D23028335001A7F51 /* Levenshtein.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levenshtein.swift; sourceTree = "<group>"; };
 		8223995F23031336001A7F51 /* Citizen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citizen.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				828285BC2300ED3400EDDF0A /* Main.storyboard */,
 				823F61842305FBD90078BFE7 /* ViewControllerGameOver.swift */,
 				823F61822305EAA40078BFE7 /* ViewControllerGovernmentPrograms.swift */,
+				1586D9FF231AD892003FA97D /* ViewControllerNewProgram.swift */,
 				823F61802305E82D0078BFE7 /* ViewControllerAlert.swift */,
 				8223996B2303BA6E001A7F51 /* ViewControllerPopulation.swift */,
 				8223996523035087001A7F51 /* ViewControllerLawList.swift */,
@@ -362,6 +365,7 @@
 				82D4B35C2305D4BA001C9371 /* ViewControllerPopulation.swift in Sources */,
 				82D4B35D2305D4BA001C9371 /* ViewControllerLawList.swift in Sources */,
 				82D4B35E2305D4BA001C9371 /* Levenshtein.swift in Sources */,
+				1586DA00231AD892003FA97D /* ViewControllerNewProgram.swift in Sources */,
 				82D4B35F2305D4BA001C9371 /* ViewControllerEnactLaw.swift in Sources */,
 				82D4B3602305D4BA001C9371 /* ViewControllerModifiers.swift in Sources */,
 				82D4B3612305D4BA001C9371 /* ViewControllerSpecificLaw.swift in Sources */,

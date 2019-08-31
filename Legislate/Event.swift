@@ -53,13 +53,22 @@ struct Event {
         allEvents.append(event3)
         
         let options4 =  [
+            "Side with the Lastrians": [Effect(affects: "unrest", amount: 1, expiry: 3, cause: "Religious Dispute", percent: 0, affectedGroups: ["Phondians"])],
+            "Side with the Phondians":  [Effect(affects: "unrest", amount: 1, expiry: 3, cause: "Religious Dispute", percent: 0, affectedGroups: ["Lastrians"])]
+        ]
+        
+        let event4 = Event(name: "Religious Dispute", description: "The Phondian and Lastrian churches have gotten into a vicious argumentd, and want you to intervene.", options: options4, requirement: {return true}, inevitable: false)
+        
+        allEvents.append(event4)
+        
+        let optionsRioting =  [
             "Appease them with donations": [Effect(affects: "wealth", amount: -15, expiry: 1, cause: "generous donations", percent: 0), Effect(affects: "unrest", amount: -2, expiry: 5, cause: "generous donations", percent: 0)],
             "Ignore them": [Effect(affects: "unrest", amount: 1, expiry: 10, cause: "ignored riots", percent: 0)]
         ]
         
-        let event4 = Event(name: "Rioting in the streets", description: "Many people are unhappy with your rule, and have taken to the streets in protest", options: options4, requirement: {return Civilization.shared.unrest > 0}, inevitable: true)
+        let eventRioting = Event(name: "Rioting in the streets", description: "Many people are unhappy with your rule, and have taken to the streets in protest", options: optionsRioting, requirement: {return Civilization.shared.unrest > 0}, inevitable: true)
         
-        allEvents.append(event4)
+        allEvents.append(eventRioting)
         
         let options5 =  [
             "Levy emergency taxes": [Effect(affects: "wealth", amount: +15, expiry: 1, cause: "emergency taxes", percent: 0), Effect(affects: "unrest", amount: 5, expiry: 10, cause: "emergency taxes", percent: 0)],
