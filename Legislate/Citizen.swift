@@ -28,4 +28,14 @@ struct Citizen {
         
         return Citizen(religion: religion, occupation: "Farmers")
     }
+    
+    mutating func calcWealth() {
+        if occupation == "Farmers" {
+            self.wealth = 1.0
+        } else if occupation == "Artisans" {
+            self.wealth = 1.5
+        } else if occupation == "Merchants" {
+            self.wealth = 5.0
+        }
+    }
 }

@@ -21,6 +21,6 @@ class ViewControllerEconomy: UIViewController {
         self.view.backgroundColor = ViewController.backgroundColor
         wealthCounter.text = String(Int(Civilization.shared.wealth))
         citizenWealthCounter.text = String(Civilization.shared.avgCitizenWealth())
-        incomeCounter.text = String(3)
+        incomeCounter.text = String(Civilization.shared.income)
     }
 }

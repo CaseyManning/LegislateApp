@@ -70,10 +70,12 @@
 		82D4B36E2305D4C3001C9371 /* Law.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223996323031D15001A7F51 /* Law.swift */; };
 		82D4B36F2305D4C3001C9371 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F7A8A1230233DC00501459 /* Event.swift */; };
 		82FA265623061406003E9267 /* grid.gif in Resources */ = {isa = PBXBuildFile; fileRef = 82FA265523061406003E9267 /* grid.gif */; };
+		B17C8DB1ED4DBC1073A82C5A /* Pods_Legislate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902B3CC828F428081E39FD85 /* Pods_Legislate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1586D9FF231AD892003FA97D /* ViewControllerNewProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewProgram.swift; sourceTree = "<group>"; };
+		3805A173EF89E0893EB94A35 /* Pods-Legislate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Legislate.release.xcconfig"; path = "Target Support Files/Pods-Legislate/Pods-Legislate.release.xcconfig"; sourceTree = "<group>"; };
 		8223995B23027F0B001A7F51 /* ViewControllerEnactLaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEnactLaw.swift; sourceTree = "<group>"; };
 		8223995D23028335001A7F51 /* Levenshtein.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levenshtein.swift; sourceTree = "<group>"; };
 		8223995F23031336001A7F51 /* Citizen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citizen.swift; sourceTree = "<group>"; };
@@ -140,6 +142,8 @@
 		82F7A8A5230245A700501459 /* ViewControllerModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModifiers.swift; sourceTree = "<group>"; };
 		82F7A8A923024C7900501459 /* religonIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = religonIcon.jpg; sourceTree = "<group>"; };
 		82FA265523061406003E9267 /* grid.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = grid.gif; sourceTree = "<group>"; };
+		902B3CC828F428081E39FD85 /* Pods_Legislate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Legislate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E54DEA80451B1BCC08F53B49 /* Pods-Legislate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Legislate.debug.xcconfig"; path = "Target Support Files/Pods-Legislate/Pods-Legislate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,18 +151,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17C8DB1ED4DBC1073A82C5A /* Pods_Legislate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F97E4B3C20BD66B7B1CD12D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				902B3CC828F428081E39FD85 /* Pods_Legislate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F6B220E504DEFFD58D0D0FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E54DEA80451B1BCC08F53B49 /* Pods-Legislate.debug.xcconfig */,
+				3805A173EF89E0893EB94A35 /* Pods-Legislate.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		828285AC2300ED3400EDDF0A = {
 			isa = PBXGroup;
 			children = (
 				828285B72300ED3400EDDF0A /* ReignsGame */,
 				82D4B3382305D3CE001C9371 /* Legislate */,
 				828285B62300ED3400EDDF0A /* Products */,
+				5F6B220E504DEFFD58D0D0FF /* Pods */,
+				3F97E4B3C20BD66B7B1CD12D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,9 +282,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82D4B3462305D3CF001C9371 /* Build configuration list for PBXNativeTarget "Legislate" */;
 			buildPhases = (
+				298F8F616523DC664579007A /* [CP] Check Pods Manifest.lock */,
 				82D4B3332305D3CE001C9371 /* Sources */,
 				82D4B3342305D3CE001C9371 /* Frameworks */,
 				82D4B3352305D3CE001C9371 /* Resources */,
+				F9845D0E1E786A036046D498 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,6 +374,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		298F8F616523DC664579007A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Legislate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9845D0E1E786A036046D498 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Legislate/Pods-Legislate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Legislate/Pods-Legislate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Legislate/Pods-Legislate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		82D4B3332305D3CE001C9371 /* Sources */ = {
@@ -524,6 +593,7 @@
 		};
 		82D4B3472305D3CF001C9371 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E54DEA80451B1BCC08F53B49 /* Pods-Legislate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -542,6 +612,7 @@
 		};
 		82D4B3482305D3CF001C9371 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3805A173EF89E0893EB94A35 /* Pods-Legislate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -52,14 +52,14 @@ struct Event {
         
         allEvents.append(event3)
         
-        let options4 =  [
-            "Side with the Lastrians": [Effect(affects: "unrest", amount: 1, expiry: 3, cause: "Religious Dispute", percent: 0, affectedGroups: ["Phondians"])],
-            "Side with the Phondians":  [Effect(affects: "unrest", amount: 1, expiry: 3, cause: "Religious Dispute", percent: 0, affectedGroups: ["Lastrians"])]
-        ]
-        
-        let event4 = Event(name: "Religious Dispute", description: "The Phondian and Lastrian churches have gotten into a vicious argumentd, and want you to intervene.", options: options4, requirement: {return true}, inevitable: false)
-        
-        allEvents.append(event4)
+//        let options4 =  [
+//            "Side with the Lastrians": [Effect(affects: "unrest", amount: 1, expiry: 3, cause: "Religious Dispute", percent: 0, affectedGroups: ["Phondians"])],
+//            "Side with the Phondians":  [Effect(affects: "unrest", amount: 1, expiry: 3, cause: "Religious Dispute", percent: 0, affectedGroups: ["Lastrians"])]
+//        ]
+//
+//        let event4 = Event(name: "Religious Dispute", description: "The Phondian and Lastrian churches have gotten into a vicious argumentd, and want you to intervene.", options: options4, requirement: {return true}, inevitable: false)
+//
+//        allEvents.append(event4)
         
         let optionsRioting =  [
             "Appease them with donations": [Effect(affects: "wealth", amount: -15, expiry: 1, cause: "generous donations", percent: 0), Effect(affects: "unrest", amount: -2, expiry: 5, cause: "generous donations", percent: 0)],
@@ -78,5 +78,14 @@ struct Event {
         let event5 = Event(name: "Bankruptcy!", description: "The treasury is empty, and we are in desperate need of more money", options: options5, requirement: {return Civilization.shared.wealth < 0}, inevitable: true)
         
         allEvents.append(event5)
+        
+        let options6 =  [
+            "Levy emergency taxes": [Effect(affects: "wealth", amount: +15, expiry: 1, cause: "emergency taxes", percent: 0), Effect(affects: "unrest", amount: 5, expiry: 10, cause: "emergency taxes", percent: 0)],
+            "Who cares?": []
+        ]
+        
+        let event6 = Event(name: "", description: "The treasury is empty, and we are in desperate need of more money", options: options6, requirement: {return Civilization.shared.wealth < 0}, inevitable: true)
+        
+        allEvents.append(event6)
     }
 }

@@ -17,5 +17,7 @@ class ViewControllerPopulation: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = ViewController.backgroundColor
 
+        let cits =  Civilization.shared.population
+        var occupations: [Int] = []
     }
 }

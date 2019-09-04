@@ -16,6 +16,8 @@ class Civilization {
     var unrest = 1.0
     var poverty = 1.0
     
+    var income: Double = 0
+    
     var laws: [Law] = []
     var programs: [GovProgram] = []
     var possiblePograms: [GovProgram] = GovProgram.getPrograms()
@@ -75,14 +77,6 @@ class Civilization {
         return u
     }
     
-    func getTaxAmount() -> Double{
-        var income: Double = 0
-        for c in population {
-            income += c.wealth * taxRate
-        }
-        return income
-    }
-    
     func applyModifiers() {
         for effect in effects {
             if effect.affectedField == "wealth" {
@@ -104,6 +98,24 @@ class Civilization {
         
         for law in laws {
             for effect in law.getEffects() {
+                if effect.affectedField == "wealth" {
+                    wealth += effect.amount
+                }
+                if effect.affectedField == "population" {
+                    if effect.amount > 0 {
+                        for _ in 0..<Int(effect.amount) {
+                            population.append(Citizen.generateCitizen())
+                        }
+                    } else {
+                        for _ in 0..<Int(abs(effect.amount)) {
+                            population.remove(at: Int.random(in: 0..<population.count))
+                        }
+                    }
+                }
+            }
+        }
+        for program in programs {
+            for effect in program.effects {
                 if effect.affectedField == "wealth" {
                     wealth += effect.amount
                 }
@@ -170,6 +182,21 @@ class Civilization {
                     }
                 }
             }
+            for p in programs {
+                for effect in p.effects {
+                    if effect.affectedField == "unrest" {
+                        if effect.affects(citizen: population[i]) {
+                            population[i].unrest += effect.amount
+                        }
+                    }
+                    population[i].wealth = 1
+                    if effect.affectedField == "citizen wealth" {
+                        if effect.affects(citizen: population[i]) {
+                            population[i].wealth += effect.amount
+                        }
+                    }
+                }
+            }
         }
         
         for alert in alerts {
@@ -180,13 +207,19 @@ class Civilization {
     }
     
     func nextTurn() {
+        income = wealth
+        for i in 0..<population.count {
+            population[i].calcWealth()
+        }
         Civilization.shared.applyModifiers()
         tickModifiers()
         activeAlerts = []
         turn += 1
         
         for program in programs {
-            program.effect()
+            program.effect(program.affectedGroups)
         }
+        income -= wealth
+        income = -income
     }
 }

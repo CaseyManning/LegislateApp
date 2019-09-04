@@ -14,7 +14,7 @@ struct Law {
     var forGroup: String
     var type: String
     
-    static var laws = ["Murder", "Theft", "Firearms", "Religious Practice", "Criticism of the Government", "Medical Care", "Personal Wealth", "Farming", "Nonagricultural Jobs", "Land Ownership"]
+    static var laws = ["Murder", "Theft", "Weapons", "Religious Practice", "Criticism of the Government", "Medical Care", "Personal Wealth", "Farming", "Nonagricultural Jobs", "Land Ownership"]
     
     static let descriptions = [
         "Ban of Murder": "A cornerstone of legal systems across the globe, this anti-homocide legislation ensures that regular citizens don't go around killing each other willy-nilly.",
@@ -22,7 +22,7 @@ struct Law {
         "Ban of Murder for Women": "Many of the less forward-thinking citizens in your realm consider the idea of murder being illegal only for women to be completely ludicrous, causing significant unrest.",
         "Ban of Murder for Farmers": "Many of the less forward-thinking citizens in your realm consider the idea of murder being illegal only for artisans to be completely ludicrous, causing significant unrest.",
         "Ban of Murder for Artisans": "Many of the less forward-thinking citizens in your realm consider the idea of murder being illegal only for artisans to be completely ludicrous, causing significant unrest.",
-        "Ban of Theft": "Prevents any citizen from taking the possessions of any other citizen without their consent.",
+        "Ban of Theft": "According to this groundbreaking legislation, a robber cannot legally take any of your possessions without your consent.",
         "Ban of Religious Practice": "Prevents all citizens from practicing their religion. This will anger will cause great unrest, but if implemented for 15 turns, will convert your entire society to atheism.",
         "Ban of Religious Practice for Phondians": "Prevents Phondians from practicing their religion. This will cause great unrest, but if implemented for 15 turns, will remove all followers of the religious group.",
         "Ban of Religious Practice for Lastrians": "Prevents Lastrians from practicing their religion. This will anger them greatly",
